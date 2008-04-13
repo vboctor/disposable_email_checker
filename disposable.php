@@ -23,7 +23,7 @@
  */
 class DisposableEmailChecker
 {
-	var $forwarding_domains_array = array(
+	static $forwarding_domains_array = array(
 		'1chuan.com',
 		'1zhuan.com',
 		'4warding.com',
@@ -59,10 +59,10 @@ class DisposableEmailChecker
 		'temporaryforwarding.com',
 		'trashmail.net',
 		'xemaps.com',
-		'xmaily.com',
+		'xmaily.com'
 	);
 
-	var $trash_domains_array = array(
+	static $trash_domains_array = array(
 		'10minutemail.com',
 		'675hosting.com',
 		'675hosting.net',
@@ -170,14 +170,14 @@ class DisposableEmailChecker
 		'willselfdestruct.com',
 		'wilemail.com',
 		'xagloo.com',
-		'yopmail.com',
+		'yopmail.com'
 	);
 
-	var $shredder_domains_array = array(
-		'spambob.org',
+	static $shredder_domains_array = array(
+		'spambob.org'
 	);
 
-	var $time_bound_domains_array = array(
+	static $time_bound_domains_array = array(
 		'10minutemail.com',
 		'bugmenot.com',
 		'buyusedlibrarybooks.org',
@@ -219,10 +219,10 @@ class DisposableEmailChecker
 		'trashmail.net',
 		'walala.org',
 		'wh4f.org',
-		'yopmail.com',
+		'yopmail.com'
 	);
 
-	var $open_domains_array = array(
+	static $open_domains_array = array(
 		'aim.com',
 		'aol.com',
 		'bk.ru',
@@ -304,7 +304,7 @@ class DisposableEmailChecker
 		'web.de',
 		'webmail.co.za',
 		'websurfer.co.za',
-		'workmail.co.za',
+		'workmail.co.za'
 	);
 
 	/**
@@ -332,7 +332,7 @@ class DisposableEmailChecker
 	 */
 	function is_forwarding_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
-		return in_array( $t_domain, $this->forwarding_domains_array );
+		return in_array( $t_domain, DisposableEmailChecker::$forwarding_domains_array );
 	}
 
 	/**
@@ -347,7 +347,7 @@ class DisposableEmailChecker
 	 */
 	function is_trash_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
-		return in_array( $t_domain, $this->trash_domains_array );
+		return in_array( $t_domain, DisposableEmailChecker::$trash_domains_array );
 	}
 
 	/**
@@ -360,7 +360,7 @@ class DisposableEmailChecker
 	 */
 	function is_shredder_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
-		return in_array( $t_domain, $this->shredder_domains_array );
+		return in_array( $t_domain, DisposableEmailChecker::$shredder_domains_array );
 	}
 
 	/**
@@ -374,7 +374,7 @@ class DisposableEmailChecker
 	 */
 	function is_time_bound_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
-		return in_array( $t_domain, $this->time_bound_domains_array );
+		return in_array( $t_domain, DisposableEmailChecker::$time_bound_domains_array );
 	}
 
 	/**
@@ -401,7 +401,7 @@ class DisposableEmailChecker
 	 */
 	function is_open_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
-		return in_array( $t_domain, $this->open_domains_array );
+		return in_array( $t_domain, DisposableEmailChecker::$open_domains_array );
 	}
 
 	/**
@@ -426,11 +426,11 @@ class DisposableEmailChecker
 	 * each category.
 	 */
 	function echo_stats() {
-		echo 'Forwarding Domains: ' . count( $this->forwarding_domains_array ) . '<br />';
-		echo 'Free Domains: ' . count( $this->free_domains_array ) . '<br />';
-		echo 'Shredded Domains: ' . count( $this->shredder_domains_array ) . '<br />';
-		echo 'Time Bound: ' . count( $this->shredder_domains_array ) . '<br />';
-		echo 'Trash Domains: ' . count( $this->trash_domains_array ) . '<br />';
+		echo 'Forwarding Domains: ' . count( DisposableEmailChecker::$forwarding_domains_array ) . '<br />';
+		echo 'Free Domains: ' . count( DisposableEmailChecker::$open_domains_array ) . '<br />';
+		echo 'Shredded Domains: ' . count( DisposableEmailChecker::$shredder_domains_array ) . '<br />';
+		echo 'Time Bound: ' . count( DisposableEmailChecker::$time_bound_domains_array ) . '<br />';
+		echo 'Trash Domains: ' . count( DisposableEmailChecker::$trash_domains_array ) . '<br />';
 	}
 
 	//
