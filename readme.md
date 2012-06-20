@@ -64,8 +64,7 @@ back to this library are:
 2. Report bugs and feature request in the bug tracker.
 3. Provide ports for the library in languages other than PHP.
 
-To report bugs and feature requests use the bug tracker at:
-http://www.futureware.biz/mantis
+To report bugs and feature requests use the associated github bug tracker.
 
 
 ## Versioning Scheme
