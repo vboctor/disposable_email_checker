@@ -15,6 +15,14 @@ may decide to accept some of these categories but not the other.  This provides
 a great flexibility for each application to block the cases that doesn't work
 for its domain.
 
+## Goals
+
+This project started with offering a php library, but in v2, it has been refactored
+to separate the domain lists from the code.  This enables the following scenarios:
+
+- Providing implementations in multiple languages that consumes such data files.
+- Enable apps to easily embed these data files and consume them directly.
+- Simplify the process of updating the list to add more domains.
 
 ## Categories of disposable address
 

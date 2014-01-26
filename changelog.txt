@@ -1,4 +1,9 @@
 DisposableEmailChecker ChangeLog
+
+2013.* - 2.0.0-dev
+- Separate code from data files containing domain lists.
+- Change directory structure to enable having implementations in multiple languages.
+
 2012.09.07  -  1.1.3
 - 36 disposable forwarding email providers.
 - 142 disposable trash email providers (10 new).
