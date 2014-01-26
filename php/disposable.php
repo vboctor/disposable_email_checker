@@ -114,7 +114,7 @@ class DisposableEmailChecker
 	 * See is_open_domain() for details.
 	 */
 	function is_free_email( $p_email ) {
-		return $this->is_open_email( $p_email );
+		return DisposableEmailChecker::is_open_email( $p_email );
 	}
 
 	/**
