@@ -71,7 +71,7 @@ To report bugs and feature requests use the associated github bug tracker.
 
 The versioning for this library is formatted as follows "1.2.3".
 
-   (1) This is the majro version which will change when there are major changes 
+   (1) This is the major version which will change when there are major changes 
        or re-implementation.
        
    (2) This is the minor version which will change when the APIs changes.
