@@ -1,8 +1,16 @@
 DisposableEmailChecker ChangeLog
 
-2013.* - 2.0.0-dev
+2014.01.26 - 2.0.0
 - Separate code from data files containing domain lists.
 - Change directory structure to enable having implementations in multiple languages.
+- Added public and private access specifiers to all methods on the class.
+- All class methods are now static.
+- Added 12 unit tests and continuous integration setup for php 5.3, 5.4 and 5.5.
+- 37 disposable forwarding email providers (1 new).
+- 142 disposable trash email providers.
+- 1 disposable shredder email provider.
+- 42 disposable time bound email provider.
+- 285 free email providers (1 new).
 
 2012.09.07  -  1.1.3
 - 36 disposable forwarding email providers.
