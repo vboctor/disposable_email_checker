@@ -216,8 +216,10 @@ class DisposableEmailChecker
 	 */
 	private static function _get_domain_from_address( $p_email ) {
 		$t_domain_pos = strpos( $p_email, '@' );
+
+		// If no @ sign, assume domain was passed in and return as is.
 		if ( $t_domain_pos === false ) {
-			return '';
+			return $p_email;
 		}
 
 		return strtolower( substr( $p_email, $t_domain_pos + 1 ) );
