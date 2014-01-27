@@ -39,16 +39,6 @@ class DisposableEmailCheckerTests extends PHPUnit_Framework_TestCase
 		$this->assertFalse( DisposableEmailChecker::is_trash_email( 'mantishub.com' ) );
 	}
 
-	public function testTrashDomain() {
-		$this->assertTrue( DisposableEmailChecker::is_trash_email( 'someone@fakeinbox.com' ) );
-		$this->assertTrue( DisposableEmailChecker::is_trash_email( 'fakeinbox.com' ) );
-	}
-
-	public function testTrashDomainNoMatch() {
-		$this->assertFalse( DisposableEmailChecker::is_trash_email( 'someone@mantishub.com' ) );
-		$this->assertFalse( DisposableEmailChecker::is_trash_email( 'mantishub.com' ) );
-	}
-
 	public function testShredderDomain() {
 		$this->assertTrue( DisposableEmailChecker::is_shredder_email( 'someone@spambob.org' ) );
 		$this->assertTrue( DisposableEmailChecker::is_shredder_email( 'spambob.org' ) );
