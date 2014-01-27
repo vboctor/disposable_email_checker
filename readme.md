@@ -1,5 +1,7 @@
 # Disposable Email Checker
 
+[![Build Status](https://travis-ci.org/vboctor/disposable_email_checker.png?branch=master)](https://travis-ci.org/vboctor/disposable_email_checker)
+
 ## What is it?
 
 Disposable Email Checker is a library that allows applications to check for
