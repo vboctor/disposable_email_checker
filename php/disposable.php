@@ -14,11 +14,11 @@
  */
 class DisposableEmailChecker
 {
-	static $forwarding_domains_array = null;
-	static $trash_domains_array = null;
-	static $shredder_domains_array = null;
-	static $time_bound_domains_array = null;
-	static $open_domains_array = null;
+	private static $forwarding_domains_array = null;
+	private static $trash_domains_array = null;
+	private static $shredder_domains_array = null;
+	private static $time_bound_domains_array = null;
+	private static $open_domains_array = null;
 
 	/**
 	 * Determines if the email address is disposable.
@@ -26,7 +26,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to validate.
 	 * @returns true: disposable, false: non-disposable.
 	 */
-	function is_disposable_email( $p_email ) {
+	public static function is_disposable_email( $p_email ) {
 		return (
 			DisposableEmailChecker::is_forwarding_email( $p_email ) ||
 			DisposableEmailChecker::is_trash_email( $p_email ) ||
@@ -43,7 +43,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to check.
 	 * @returns true: disposable forwarding, false: otherwise.
 	 */
-	function is_forwarding_email( $p_email ) {
+	public static function is_forwarding_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$forwarding_domains_array === null ) {
@@ -63,7 +63,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to check.
 	 * @returns true: disposable trash mail, false: otherwise.
 	 */
-	function is_trash_email( $p_email ) {
+	public static function is_trash_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$trash_domains_array === null ) {
@@ -81,7 +81,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to check.
 	 * @returns true: shredded disposable email, false: otherwise.
 	 */
-	function is_shredder_email( $p_email ) {
+	public static function is_shredder_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$shredder_domains_array === null ) {
@@ -100,7 +100,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to check.
 	 * @returns true: time bound disposable email, false: otherwise.
 	 */
-	function is_time_bound_email( $p_email ) {
+	public static function is_time_bound_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$time_bound_domains_array === null ) {
@@ -111,10 +111,10 @@ class DisposableEmailChecker
 	}
 
 	/**
-	 * See is_open_domain() for details.
+	 * See is_open_email() for details.
 	 */
-	function is_free_email( $p_email ) {
-		return $this->is_open_email( $p_email );
+	public static function is_free_email( $p_email ) {
+		return DisposableEmailChecker::is_open_email( $p_email );
 	}
 
 	/**
@@ -132,7 +132,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to check.
 	 * @returns true: open domain email, false: otherwise.
 	 */
-	function is_open_email( $p_email ) {
+	public static function is_open_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$open_domains_array === null ) {
@@ -149,21 +149,31 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to echo results for.  This must be a 
 	 *                  safe script (i.e. no javascript, etc).
 	 */
-	function echo_results( $p_email ) {
+	public static function echo_results( $p_email ) {		
 		echo 'email address = ', htmlspecialchars( $p_email ), '<br />';
-		echo 'is_disposable_email = ', DisposableEmailChecker::is_disposable_email( $p_email ), '<br />'; 
-		echo 'is_forwarding_email = ', DisposableEmailChecker::is_forwarding_email( $p_email ), '<br />'; 
-		echo 'is_trash_email = ', DisposableEmailChecker::is_trash_email( $p_email ), '<br />'; 
-		echo 'is_time_bound_email = ', DisposableEmailChecker::is_time_bound_email( $p_email ), '<br />'; 
-		echo 'is_shredder_email = ', DisposableEmailChecker::is_shredder_email( $p_email ), '<br />'; 
-		echo 'is_free_email = ', DisposableEmailChecker::is_free_email( $p_email ), '<br />'; 
+		echo 'is_disposable_email = ', DisposableEmailChecker::is_disposable_email( $p_email ) ? 'true' : 'false', '<br />'; 
+		echo 'is_forwarding_email = ', DisposableEmailChecker::is_forwarding_email( $p_email ) ? 'true' : 'false', '<br />'; 
+		echo 'is_trash_email = ', DisposableEmailChecker::is_trash_email( $p_email ) ? 'true' : 'false', '<br />'; 
+		echo 'is_time_bound_email = ', DisposableEmailChecker::is_time_bound_email( $p_email ) ? 'true' : 'false', '<br />'; 
+		echo 'is_shredder_email = ', DisposableEmailChecker::is_shredder_email( $p_email ) ? 'true' : 'false', '<br />'; 
+		echo 'is_free_email = ', DisposableEmailChecker::is_free_email( $p_email ) ? 'true' : 'false', '<br />'; 
 	}
 
 	/**
 	 * A debugging function that outputs some statistics about the number of domains in
 	 * each category.
 	 */
-	function echo_stats() {
+	public static function echo_stats() {
+		// Trigger loading of all domains
+		$domain = 'example.com';
+		DisposableEmailChecker::is_forwarding_email( $domain );
+		DisposableEmailChecker::is_open_email( $domain );
+		DisposableEmailChecker::is_free_email( $domain );
+		DisposableEmailChecker::is_time_bound_email( $domain );
+		DisposableEmailChecker::is_shredder_email( $domain );
+		DisposableEmailChecker::is_trash_email( $domain );
+		DisposableEmailChecker::is_forwarding_email( $domain );
+
 		echo 'Forwarding Domains: ' . count( DisposableEmailChecker::$forwarding_domains_array ) . '<br />';
 		echo 'Free Domains: ' . count( DisposableEmailChecker::$open_domains_array ) . '<br />';
 		echo 'Shredded Domains: ' . count( DisposableEmailChecker::$shredder_domains_array ) . '<br />';
@@ -181,8 +191,20 @@ class DisposableEmailChecker
 	 * @param $p_type The name of the file not including the path or extension (e.g. open_domains).
 	 * @returns array An array of domains matching the specified file name.
 	 */
-	function _load_file( $p_type ) {
-		return file( dirname( dirname( __FILE__ ) ) . '/data/' . $p_type . '.txt' );
+	private static function _load_file( $p_type ) {
+		$t_array = file( dirname( dirname( __FILE__ ) ) . '/data/' . $p_type . '.txt' );
+		$t_result_array = array();
+
+		foreach ( $t_array as $t_line ) {
+			$t_entry = trim( $t_line );
+			if ( empty( $t_entry ) ) {
+				continue;
+			}
+
+			$t_result_array[] = strtolower( $t_entry );
+		}
+
+		return $t_result_array;
 	}
 
 	/**
@@ -192,7 +214,7 @@ class DisposableEmailChecker
 	 * @param $p_email  The email address to extra the domain from.
 	 * @returns The lower case domain or empty string if email not valid.
 	 */
-	function _get_domain_from_address( $p_email ) {
+	private static function _get_domain_from_address( $p_email ) {
 		$t_domain_pos = strpos( $p_email, '@' );
 		if ( $t_domain_pos === false ) {
 			return '';
