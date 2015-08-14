@@ -49,6 +49,30 @@ class DisposableEmailCheckerTests extends PHPUnit_Framework_TestCase
 		$this->assertFalse( DisposableEmailChecker::is_shredder_email( 'mantishub.com' ) );
 	}
 
+	/**
+	 * @dataProvider providerIsSubaddressedEmail
+	 */
+	public function testSubaddressedEmail($expected, $address) {
+		$this->assertEquals( $expected, DisposableEmailChecker::is_subaddressed_email( $address ) );
+	}
+
+	public function providerIsSubaddressedEmail() {
+		// Subaddressed
+		$tests[] = array( TRUE, 'username+tag@example.com' );
+		$tests[] = array( TRUE, 'username+tag+@example.com' );
+		$tests[] = array( TRUE, 'username++tag@example.com' );
+		$tests[] = array( TRUE, 'username+@example.com' );
+		$tests[] = array( TRUE, 'username++@example.com' );
+
+		// Non-subaddressed
+		$tests[] = array( FALSE, 'username@example.com' );
+		$tests[] = array( FALSE, '+tag@example.com' );
+		$tests[] = array( FALSE, 'username@sub+domain.example.com' );
+		$tests[] = array( FALSE, '' );
+
+		return $tests;
+	}
+
 	public function testTimeBoundDomain() {
 		$this->assertTrue( DisposableEmailChecker::is_time_bound_email( 'someone@getonemail.com' ) );
 		$this->assertTrue( DisposableEmailChecker::is_time_bound_email( 'getonemail.com' ) );

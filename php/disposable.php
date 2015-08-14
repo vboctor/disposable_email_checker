@@ -92,6 +92,23 @@ class DisposableEmailChecker
 	}
 
 	/**
+	 * Determines whether a given email address is subaddressed or not.
+	 * Subaddressed email addresses, also known as plus addresses or tagged
+	 * addresses, have the form username+tag@domain.tld.
+	 *
+	 * @param string $address  An email address to test.
+	 * @returns true: subaddressed email, false: otherwise.
+	 *
+	 * @see https://en.wikipedia.org/wiki/Email_address#Sub-addressing
+	 */
+	public static function is_subaddressed_email($address) {
+		// A subaddressed email address must contain a username and a plus sign.
+		// Match any string that begins with one or more characters other than
+		// an at sign (@), followed by a plus sign (+).
+		return (preg_match('/^[^@]+\+/', $address) == 1);
+	}
+
+	/**
 	 * Determines if the email address is time bound, these are the disposable
 	 * addresses that auto expire after a pre-configured time.  For example,
 	 * 10 minutes, 1 hour, 2 hours, 1 day, 1 month, etc.  These address can
