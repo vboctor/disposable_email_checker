@@ -1,0 +1,22 @@
+{
+	"name": "vboctor/disposable_email_checker",
+	"description": "Identify various types of disposable disposable email addresses.",
+	"version": "2.0.0",
+	"type": "library",
+	"keywords": [
+		"email",
+		"spam",
+		"abuse"
+	],
+	"homepage": "https://github.com/vboctor/disposable_email_checker",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Victor Boctor",
+			"role": "Developer"
+		}
+	],
+	"require-dev": {
+		"phpunit/phpunit": "4.8.*"
+	}
+}
