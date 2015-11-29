@@ -1,5 +1,13 @@
 DisposableEmailChecker ChangeLog
 
+2015.11.28 - 2.1.0
+- Changed license to MIT
+- Added support for comments in data files (starting with '#').
+- Update copyright year.
+- Added 'DisposableEmailChecker::is_subaddressed_email()' to check for domains like user+tag@domain.tld.
+- Added Composer package manager support.
+- Added a bunch of domains.
+
 2014.01.26 - 2.0.0
 - Separate code from data files containing domain lists.
 - Change directory structure to enable having implementations in multiple languages.

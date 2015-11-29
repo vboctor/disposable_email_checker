@@ -1,7 +1,7 @@
 {
 	"name": "vboctor/disposable_email_checker",
 	"description": "Identify various types of disposable disposable email addresses.",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"type": "library",
 	"keywords": [
 		"email",
