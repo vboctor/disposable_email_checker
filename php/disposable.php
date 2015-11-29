@@ -218,6 +218,11 @@ class DisposableEmailChecker
 				continue;
 			}
 
+			# Exclude commented lines
+			if ( strpos( $t_entry, '#' ) === 0 ) {
+				continue;
+			}
+
 			$t_result_array[] = strtolower( $t_entry );
 		}
 
