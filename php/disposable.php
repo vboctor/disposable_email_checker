@@ -2,7 +2,7 @@
 	# Disposable Email Checker - a static php based check for spam emails
 	# Copyright (C) 2007-2008 Victor Boctor
 	
-	# This program is distributed under the terms and conditions of the LGPL
+	# This program is distributed under the terms and conditions of the MIT
 	# See the README and LICENSE files for details
 
 /**

@@ -9,7 +9,7 @@
 		"abuse"
 	],
 	"homepage": "https://github.com/vboctor/disposable_email_checker",
-	"license": "GPL-2.0+",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Victor Boctor",

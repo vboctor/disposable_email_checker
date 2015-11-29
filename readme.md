@@ -66,7 +66,7 @@ future to provide applications with ways of explicitly requiring online checks.
 
 ## Contributing
 
-This library is available as open source with LGPL license, so you can use it
+This library is available as open source with MIT license, so you can use it
 in both open source and commercial applications.  The best ways to contribute
 back to this library are:
 
