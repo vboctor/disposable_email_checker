@@ -1,9 +1,9 @@
 <?php
-	# Disposable Email Checker - a static php based check for spam emails
-	# Copyright (C) 2007-2008 Victor Boctor
-	
-	# This program is distributed under the terms and conditions of the MIT
-	# See the README and LICENSE files for details
+# Disposable Email Checker - a static php based check for spam emails
+# Copyright (C) 2007-2015 Victor Boctor
+
+# This program is distributed under the terms and conditions of the MIT
+# See the README and LICENSE files for details
 
 /**
  * A class that checks an email address and provides some facts about whether
