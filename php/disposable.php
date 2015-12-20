@@ -23,8 +23,8 @@ class DisposableEmailChecker
 	/**
 	 * Determines if the email address is disposable.
 	 *
-	 * @param $p_email  The email address to validate.
-	 * @returns true: disposable, false: non-disposable.
+	 * @param string $p_email  The email address to validate.
+	 * @return boolean true: disposable, false: non-disposable.
 	 */
 	public static function is_disposable_email( $p_email ) {
 		return (
@@ -40,8 +40,8 @@ class DisposableEmailChecker
 	 * addresses since emails end up in the user's inbox unless the user
 	 * cancel the address.
 	 *
-	 * @param $p_email  The email address to check.
-	 * @returns true: disposable forwarding, false: otherwise.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: disposable forwarding, false: otherwise.
 	 */
 	public static function is_forwarding_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
@@ -60,8 +60,8 @@ class DisposableEmailChecker
 	 * to such address is not protected.  Typically users use these addresses
 	 * to signup for a service, and then they never check it again.
 	 *
-	 * @param $p_email  The email address to check.
-	 * @returns true: disposable trash mail, false: otherwise.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: disposable trash mail, false: otherwise.
 	 */
 	public static function is_trash_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
@@ -78,8 +78,8 @@ class DisposableEmailChecker
 	 * email address delete all received emails without forwarding them or 
 	 * making them available for a user to check.
 	 *
-	 * @param $p_email  The email address to check.
-	 * @returns true: shredded disposable email, false: otherwise.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: shredded disposable email, false: otherwise.
 	 */
 	public static function is_shredder_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
@@ -97,7 +97,7 @@ class DisposableEmailChecker
 	 * addresses, have the form username+tag@domain.tld.
 	 *
 	 * @param string $address  An email address to test.
-	 * @returns true: subaddressed email, false: otherwise.
+	 * @return boolean true: subaddressed email, false: otherwise.
 	 *
 	 * @see https://en.wikipedia.org/wiki/Email_address#Sub-addressing
 	 */
@@ -114,8 +114,8 @@ class DisposableEmailChecker
 	 * 10 minutes, 1 hour, 2 hours, 1 day, 1 month, etc.  These address can
 	 * also be trash emails or forwarding emails.
 	 *
-	 * @param $p_email  The email address to check.
-	 * @returns true: time bound disposable email, false: otherwise.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: time bound disposable email, false: otherwise.
 	 */
 	public static function is_time_bound_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
@@ -129,6 +129,8 @@ class DisposableEmailChecker
 
 	/**
 	 * See is_open_email() for details.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: free domain email, false: otherwise.
 	 */
 	public static function is_free_email( $p_email ) {
 		return DisposableEmailChecker::is_open_email( $p_email );
@@ -146,8 +148,8 @@ class DisposableEmailChecker
 	 * that some users use open webmail as their primary email and that such
 	 * service providers include hotmail, gmail, and yahoo.
 	 *
-	 * @param $p_email  The email address to check.
-	 * @returns true: open domain email, false: otherwise.
+	 * @param string $p_email  The email address to check.
+	 * @return boolean true: open domain email, false: otherwise.
 	 */
 	public static function is_open_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
@@ -163,7 +165,7 @@ class DisposableEmailChecker
 	 * A debugging function that takes in an email address and dumps out the
 	 * details for such email.
 	 * 
-	 * @param $p_email  The email address to echo results for.  This must be a 
+	 * @param string $p_email  The email address to echo results for.  This must be a
 	 *                  safe script (i.e. no javascript, etc).
 	 */
 	public static function echo_results( $p_email ) {		
@@ -205,8 +207,8 @@ class DisposableEmailChecker
 	/**
 	 * Load the specified file given its name.
 	 *
-	 * @param $p_type The name of the file not including the path or extension (e.g. open_domains).
-	 * @returns array An array of domains matching the specified file name.
+	 * @param string $p_type The name of the file not including the path or extension (e.g. open_domains).
+	 * @return array An array of domains matching the specified file name.
 	 */
 	private static function _load_file( $p_type ) {
 		$t_array = file( dirname( dirname( __FILE__ ) ) . '/data/' . $p_type . '.txt' );
@@ -233,8 +235,8 @@ class DisposableEmailChecker
 	 * A helper function that takes in an email address and returns a lower case
 	 * domain.
 	 *
-	 * @param $p_email  The email address to extra the domain from.
-	 * @returns The lower case domain or empty string if email not valid.
+	 * @param string $p_email  The email address to extra the domain from.
+	 * @return string The lower case domain or empty string if email not valid.
 	 */
 	private static function _get_domain_from_address( $p_email ) {
 		$t_domain_pos = strpos( $p_email, '@' );
