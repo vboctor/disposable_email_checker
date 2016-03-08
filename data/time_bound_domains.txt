@@ -13,8 +13,14 @@ dontreg.com
 dotmsg.com
 emailto.de
 getonemail.com
+grr.la
+guerrillamail.biz
 guerrillamail.com
+guerrillamail.de
+guerrillamail.info
 guerrillamail.net
+guerrillamail.org
+guerrillamailblock.com
 haltospam.com
 jetable.com
 jetable.net
@@ -41,6 +47,7 @@ oopi.org
 pookmail.com
 reallymymail.com
 shortmail.net
+spam4.me
 spambox.us
 spamfree24.com
 spamfree24.org

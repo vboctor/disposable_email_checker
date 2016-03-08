@@ -17,15 +17,19 @@ amiri.net
 amiriindustries.com
 anonymail.dk
 anonymbox.com
+armyspay.com
 bspamfree.org
 bugmenot.com
 buyusedlibrarybooks.org
+cuvox.de
+dayrep.com
 deadaddress.com
 discardmail.com
 disposeamail.com
 dispostable.com
 dodgeit.com
 dontsendmespam.de
+einrot.com
 emaildienst.de
 emailmiser.com
 emailthe.net
@@ -44,6 +48,7 @@ fastsubaru.com
 fastsuzuki.com
 fasttoyota.com
 fastyamaha.com
+fleckens.hu
 getonemail.com
 gowikibooks.com
 gowikicampus.com
@@ -54,10 +59,12 @@ gowikimusic.com
 gowikinetwork.com
 gowikitravel.com
 gowikitv.com
+gustr.com
 haltospam.com
 ichimail.com
 incognitomail.org
 ipoo.org
+jourrapide.com
 killmail.net
 klassmaster.com
 kurzepost.de
@@ -98,6 +105,7 @@ proxymail.eu
 rcpt.at
 recyclemail.dk
 rejectmail.com
+rhyta.com
 rklips.com
 sharklasers.com
 shortmail.net
@@ -112,6 +120,8 @@ spamfree24.com
 spamfree24.net
 spamfree24.org
 spaml.com
+supperrito.com
+teleworm.us
 tempemail.net
 tempinbox.com
 tempomail.fr
@@ -146,4 +156,4 @@ wilemail.com
 willselfdestruct.com
 xagloo.com
 yopmail.com
-
+yopmail.net
