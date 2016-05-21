@@ -27,6 +27,7 @@ deadaddress.com
 discardmail.com
 disposeamail.com
 dispostable.com
+divismail.ru
 dodgeit.com
 dontsendmespam.de
 einrot.com
@@ -36,6 +37,7 @@ emailthe.net
 etranquil.com
 etranquil.net
 etranquil.org
+extremail.ru
 fakeinbox.com
 fastacura.com
 fastchevy.com
@@ -66,8 +68,10 @@ incognitomail.org
 ipoo.org
 jourrapide.com
 killmail.net
+kismail.ru
 klassmaster.com
 kurzepost.de
+leeching.net
 link2mail.net
 lortemail.dk
 mailcatch.com
