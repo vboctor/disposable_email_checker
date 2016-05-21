@@ -1,5 +1,8 @@
 DisposableEmailChecker ChangeLog
 
+2016.05.21 - 2.1.1
+- Added 18 domains
+
 2015.11.28 - 2.1.0
 - Changed license to MIT
 - Added support for comments in data files (starting with '#').
