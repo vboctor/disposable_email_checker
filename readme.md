@@ -28,7 +28,7 @@ to separate the domain lists from the code.  This enables the following scenario
 
 ## Categories of disposable address
 
-Shredder Addresses - These are not really common, some other types end up becoming
+**Shredder Addresses** - These are not really common, some other types end up becoming
 a shredder emails, but these ones starts as such.  Shredder email addresses
 delete all emails that are sent to it without storing them, forwarding them, 
 or making them available to the user that created the address.  They are 
@@ -36,20 +36,20 @@ typically used in scenarios where users are required to provide a valid email
 address but they are not expecting any valuable data or signup activation link
 to be sent to it.
 
-Forwarding Addresses - These are pretty common.  In this case users define a
+**Forwarding Addresses** - These are pretty common.  In this case users define a
 disposable email address that forwards to their real address.  At any point in
 time they may decide to deactivate this email address.  Some of these may still
 accept the emails as if they are valid, but it is not forwarded anymore, and 
 hence becoming a shredder address.  Some of these allow users to provision a
 certain duration or number of emails after which the address expires.
 
-Time Bound Addresses - These are a special kind of forwarding addresses that
+**Time Bound Addresses** - These are a special kind of forwarding addresses that
 expire after a time duration that is configured by the user.  After such 
 duration the address becomes a shredder address.  This duration is typically
 enough for a user to do the transaction that they required the address for.
 For example, signup for a service, do a transaction with a shop, etc.
 
-Free Email Boxes - The most common providers of these are the free web mail
+**Free Email Boxes** - The most common providers of these are the free web mail
 providers.  The most commonly known are Hotmail, Gmail and Yahoo.  Although
 these are free, they are not commonly used as disposable address.  Hence,
 although this library provides a check for them, they are not considered
