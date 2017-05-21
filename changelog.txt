@@ -2,6 +2,7 @@ DisposableEmailChecker ChangeLog
 
 TBD - 3.0.0
 - Added 1,400 domains from ivolo/disposable-email-domains.
+- Added 256 domains from aaronbassett/DisposableEmailChecker.
 - Remove types of domains, just track disposable list of domains.
 - Composer friendly
 

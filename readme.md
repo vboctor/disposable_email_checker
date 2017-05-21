@@ -11,7 +11,7 @@ if users use disposable addresses, then they can potentially bypass the time
 limit.  Other applications may use it to make sure that they have valid emails
 that they can use for future correspondence.
 
-The library currently contains ~1660 domains and growing.
+The library currently contains > 1,900 domains and growing.
 
 ## Goals
 
@@ -60,3 +60,4 @@ The versioning for this library is formatted as follows "1.2.3".
 
 - Contributors of Domains
 - Merged domains from [ivolo/disposable-email-domains|https://github.com/ivolo/disposable-email-domains/]
+- Merged domains from [aaronbassett/DisposableEmailChecker:https://github.com/aaronbassett/DisposableEmailChecker]
