@@ -5,6 +5,8 @@
 # This program is distributed under the terms and conditions of the MIT
 # See the README and LICENSE files for details
 
+namespace VBoctor\Email;
+
 /**
  * A class that checks an email address to determine if it is a disposable
  * email address or not.  The data that is used to make such decision is

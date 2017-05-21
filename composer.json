@@ -8,5 +8,10 @@
             "email": "victor@mantishub.net"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-0" : {
+            "VBoctor\\Email" : "php/src"
+        }
+    }
 }

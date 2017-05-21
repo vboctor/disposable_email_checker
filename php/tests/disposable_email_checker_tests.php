@@ -5,7 +5,9 @@
 # This program is distributed under the terms and conditions of the MIT
 # See the README and LICENSE files for details
 
-require_once( __DIR__ . '/../src/disposable.php' );
+require_once( __DIR__ . '/../src/DisposableEmailChecker.php' );
+
+use VBoctor\Email\DisposableEmailChecker as DisposableEmailChecker;
 
 class DisposableEmailCheckerTests extends PHPUnit_Framework_TestCase
 {
