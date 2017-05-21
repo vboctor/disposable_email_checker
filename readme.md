@@ -53,3 +53,8 @@ The versioning for this library is formatted as follows "1.2.3".
    (3) This is the data version which is the only one changed in releases that
        just update the rules that are used to determine that an email address
        is disposable.
+
+## Credits
+
+- Contributors of Domains
+- Merged domains from [ivolo/disposable-email-domains|https://github.com/ivolo/disposable-email-domains/]
