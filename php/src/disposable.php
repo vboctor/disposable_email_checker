@@ -44,7 +44,7 @@ class DisposableEmailChecker
 		// A subaddressed email address must contain a username and a plus sign.
 		// Match any string that begins with one or more characters other than
 		// an at sign (@), followed by a plus sign (+).
-		return (preg_match('/^[^@]+\+/', $address) == 1);
+		return preg_match('/^[^@]+\+/', $address) == 1;
 	}
 
 	//
@@ -58,7 +58,7 @@ class DisposableEmailChecker
 	 * @return array An array of domains matching the specified file name.
 	 */
 	private static function _load_file( $p_type ) {
-		$t_array = file( dirname( dirname( __FILE__ ) ) . '/data/' . $p_type . '.txt' );
+		$t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
 		$t_result_array = array();
 
 		foreach ( $t_array as $t_line ) {
