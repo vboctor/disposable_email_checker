@@ -1,5 +1,10 @@
 DisposableEmailChecker ChangeLog
 
+TBD - 3.0.0
+- Added 1,400 domains from ivolo/disposable-email-domains.
+- Remove types of domains, just track disposable list of domains.
+- Composer friendly
+
 2016.05.21 - 2.1.1
 - Added 18 domains
 

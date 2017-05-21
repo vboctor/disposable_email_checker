@@ -11,6 +11,8 @@ if users use disposable addresses, then they can potentially bypass the time
 limit.  Other applications may use it to make sure that they have valid emails
 that they can use for future correspondence.
 
+The library currently contains ~1660 domains and growing.
+
 ## Goals
 
 This project started with offering a php library, but in v2, it has been refactored
