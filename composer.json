@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-0" : {
-            "VBoctor\\Email" : "php/src"
+            "VBoctor\\Email\\" : "php/src"
         }
     }
 }
