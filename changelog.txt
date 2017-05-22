@@ -1,5 +1,8 @@
 DisposableEmailChecker ChangeLog
 
+2017.05.21 - 3.0.1
+- Fixes for composer.json relating to auto-loading.
+
 2017.05.21 - 3.0.0 (domains = 1,915)
 - Added 1,400 domains from ivolo/disposable-email-domains.
 - Added 256 domains from aaronbassett/DisposableEmailChecker.
