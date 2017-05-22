@@ -1,6 +1,8 @@
 {
     "name": "vboctor/disposable_email_checker",
+    "type": "library",
     "description": "Library to detect disposable email addresses",
+    "keywords": ["email","disposable","signup"],
     "license": "MIT",
     "authors": [
         {
@@ -8,7 +10,12 @@
             "email": "victor@mantishub.net"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
     "autoload": {
         "psr-0" : {
             "VBoctor\\Email" : "php/src"
