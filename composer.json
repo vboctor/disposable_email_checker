@@ -17,7 +17,7 @@
         "phpunit/phpunit": "^5.0"
     },
     "autoload": {
-        "psr-0" : {
+        "psr-4" : {
             "VBoctor\\Email\\" : "php/src"
         }
     }
