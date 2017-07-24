@@ -60,6 +60,17 @@ class DisposableEmailChecker
 	 * @return array An array of domains matching the specified file name.
 	 */
 	private static function _load_file( $p_type ) {
+	    // Check for APC cache
+        $cacheKey   = 'disposable_email_checker:' . $p_type;
+        $apcEnabled = (false || function_exists('apc_fetch'));
+        if ($apcEnabled) {
+            $cache = apc_fetch($cacheKey);
+            // If we found data in cahce, return it straight away
+            if (!empty($cache)) {
+                return $cache;
+            }
+        }
+
 		$t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
 		$t_result_array = array();
 
@@ -76,6 +87,11 @@ class DisposableEmailChecker
 
 			$t_result_array[] = strtolower( $t_entry );
 		}
+
+		// Save result into cache, if enabled
+        if ($apcEnabled) {
+            apc_store($cacheKey, $t_result_array);
+        }
 
 		return $t_result_array;
 	}
