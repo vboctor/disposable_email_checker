@@ -1,5 +1,5 @@
 {
-    "name": "vboctor/disposable_email_checker",
+    "name": "miniclip/disposable_email_checker",
     "type": "library",
     "description": "Library to detect disposable email addresses",
     "keywords": ["email","disposable","signup"],
@@ -8,6 +8,10 @@
         {
             "name": "Victor Boctor",
             "email": "victor@mantishub.net"
+        },
+        {
+            "name": "Eduardo Pereira",
+            "email": "eduardo.pereira@miniclip.com"
         }
     ],
     "require": {
