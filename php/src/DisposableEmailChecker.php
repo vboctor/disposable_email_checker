@@ -26,7 +26,7 @@ class DisposableEmailChecker
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
 		if ( DisposableEmailChecker::$domains_array === null ) {
-			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
+			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_main_file();
 		}
 
 		return in_array( $t_domain, DisposableEmailChecker::$domains_array );
@@ -49,18 +49,30 @@ class DisposableEmailChecker
 		return preg_match('/^[^@]+\+/', $address) == 1;
 	}
 
+	public static function add_domains_from_file( $p_path ) {
+		if ( DisposableEmailChecker::$domains_array === null ) {
+			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_main_file();
+		}
+		DisposableEmailChecker::$domains_array = array_merge(DisposableEmailChecker::$domains_array,
+			DisposableEmailChecker::_load_file( $p_path ));
+	}
+
 	//
 	// Private functions, shouldn't be called from outside the class
 	//
 
+	private static function _load_main_file() {
+		return DisposableEmailChecker::_load_file( __DIR__ . '/../../data/domains.txt' );
+	}
+
 	/**
 	 * Load the specified file given its name.
 	 *
-	 * @param string $p_type The name of the file not including the path or extension (e.g. open_domains).
+	 * @param string $p_path The full path of the file (e.g. ../data/open_domains.txt).
 	 * @return array An array of domains matching the specified file name.
 	 */
-	private static function _load_file( $p_type ) {
-		$t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
+	private static function _load_file( $p_path ) {
+		$t_array = file($p_path);
 		$t_result_array = array();
 
 		foreach ( $t_array as $t_line ) {
