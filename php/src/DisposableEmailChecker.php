@@ -28,9 +28,7 @@ class DisposableEmailChecker
 	public static function is_disposable_email( $p_email ) {
 		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
-		if ( DisposableEmailChecker::$domains_array === null ) {
-			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
-		}
+		DisposableEmailChecker::loadDomains();
 
 		return isset( DisposableEmailChecker::$domains_array[$t_domain] );
 	}
@@ -55,6 +53,15 @@ class DisposableEmailChecker
 	//
 	// Private functions, shouldn't be called from outside the class
 	//
+
+	/**
+	 * Loads the list of domains if not already loaded.
+	 */
+	private static function loadDomains() {
+		if ( DisposableEmailChecker::$domains_array === null ) {
+			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
+		}
+	}
 
 	/**
 	 * Loads the domains list from disk.
