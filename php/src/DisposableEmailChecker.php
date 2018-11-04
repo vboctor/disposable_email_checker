@@ -14,87 +14,103 @@ namespace VBoctor\Email;
  */
 class DisposableEmailChecker
 {
-	private static $domains_array = null;
+    private static $domains_array = null;
 
-	/**
-	 * Determines if the email address is disposable.
-	 *
-	 * @param string $p_email  The email address to validate.
-	 * @return boolean true: disposable, false: non-disposable.
-	 */
-	public static function is_disposable_email( $p_email ) {
-		$t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
+    /**
+     * Determines if the email address is disposable.
+     *
+     * @param string $p_email  The email address to validate.
+     * @return boolean true: disposable, false: non-disposable.
+     */
+    public static function is_disposable_email( $p_email ) {
+        $t_domain = DisposableEmailChecker::_get_domain_from_address( $p_email );
 
-		if ( DisposableEmailChecker::$domains_array === null ) {
-			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
-		}
+        if ( DisposableEmailChecker::$domains_array === null ) {
+            DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
+        }
 
-		return in_array( $t_domain, DisposableEmailChecker::$domains_array );
-	}
+        return in_array( $t_domain, DisposableEmailChecker::$domains_array );
+    }
 
-	/**
-	 * Determines whether a given email address is subaddressed or not.
-	 * Subaddressed email addresses, also known as plus addresses or tagged
-	 * addresses, have the form username+tag@domain.tld.
-	 *
-	 * @param string $address  An email address to test.
-	 * @return boolean true: subaddressed email, false: otherwise.
-	 *
-	 * @see https://en.wikipedia.org/wiki/Email_address#Sub-addressing
-	 */
-	public static function is_subaddressed_email($address) {
-		// A subaddressed email address must contain a username and a plus sign.
-		// Match any string that begins with one or more characters other than
-		// an at sign (@), followed by a plus sign (+).
-		return preg_match('/^[^@]+\+/', $address) == 1;
-	}
+    /**
+     * Determines whether a given email address is subaddressed or not.
+     * Subaddressed email addresses, also known as plus addresses or tagged
+     * addresses, have the form username+tag@domain.tld.
+     *
+     * @param string $address  An email address to test.
+     * @return boolean true: subaddressed email, false: otherwise.
+     *
+     * @see https://en.wikipedia.org/wiki/Email_address#Sub-addressing
+     */
+    public static function is_subaddressed_email($address) {
+        // A subaddressed email address must contain a username and a plus sign.
+        // Match any string that begins with one or more characters other than
+        // an at sign (@), followed by a plus sign (+).
+        return preg_match('/^[^@]+\+/', $address) == 1;
+    }
 
-	//
-	// Private functions, shouldn't be called from outside the class
-	//
+    //
+    // Private functions, shouldn't be called from outside the class
+    //
 
-	/**
-	 * Load the specified file given its name.
-	 *
-	 * @param string $p_type The name of the file not including the path or extension (e.g. open_domains).
-	 * @return array An array of domains matching the specified file name.
-	 */
-	private static function _load_file( $p_type ) {
-		$t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
-		$t_result_array = array();
+    /**
+     * Load the specified file given its name.
+     *
+     * @param string $p_type The name of the file not including the path or extension (e.g. open_domains).
+     * @return array An array of domains matching the specified file name.
+     */
+    private static function _load_file( $p_type ) {
+        // Check for APC cache
+        $cacheKey   = 'disposable_email_checker:' . $p_type;
+        $apcEnabled = (false || function_exists('apc_fetch'));
+        if ($apcEnabled) {
+            $cache = apc_fetch($cacheKey);
+            // If we found data in cahce, return it straight away
+            if (!empty($cache)) {
+                return $cache;
+            }
+        }
 
-		foreach ( $t_array as $t_line ) {
-			$t_entry = trim( $t_line );
-			if ( empty( $t_entry ) ) {
-				continue;
-			}
+        $t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
+        $t_result_array = array();
 
-			# Exclude commented lines
-			if ( strpos( $t_entry, '#' ) === 0 ) {
-				continue;
-			}
+        foreach ( $t_array as $t_line ) {
+            $t_entry = trim( $t_line );
+            if ( empty( $t_entry ) ) {
+                continue;
+            }
 
-			$t_result_array[] = strtolower( $t_entry );
-		}
+            # Exclude commented lines
+            if ( strpos( $t_entry, '#' ) === 0 ) {
+                continue;
+            }
 
-		return $t_result_array;
-	}
+            $t_result_array[] = strtolower( $t_entry );
+        }
 
-	/**
-	 * A helper function that takes in an email address and returns a lower case
-	 * domain.
-	 *
-	 * @param string $p_email  The email address to extra the domain from.
-	 * @return string The lower case domain or empty string if email not valid.
-	 */
-	private static function _get_domain_from_address( $p_email ) {
-		$t_domain_pos = strpos( $p_email, '@' );
+        // Save result into cache, if enabled
+        if ($apcEnabled) {
+            apc_store($cacheKey, $t_result_array);
+        }
 
-		// If no @ sign, assume domain was passed in and return as is.
-		if ( $t_domain_pos === false ) {
-			return $p_email;
-		}
+        return $t_result_array;
+    }
 
-		return strtolower( substr( $p_email, $t_domain_pos + 1 ) );
-	}
+    /**
+     * A helper function that takes in an email address and returns a lower case
+     * domain.
+     *
+     * @param string $p_email  The email address to extra the domain from.
+     * @return string The lower case domain or empty string if email not valid.
+     */
+    private static function _get_domain_from_address( $p_email ) {
+        $t_domain_pos = strpos( $p_email, '@' );
+
+        // If no @ sign, assume domain was passed in and return as is.
+        if ( $t_domain_pos === false ) {
+            return $p_email;
+        }
+
+        return strtolower( substr( $p_email, $t_domain_pos + 1 ) );
+    }
 }
