@@ -53,6 +53,15 @@ it returns `disposable: true`.
 https://open.kickbox.com/v1/disposable/{domain}
 ```
 
+## Running Unit Tests
+
+Here is how to run the unit tests:
+
+```
+composer install
+vendor/phpunit/phpunit/phpunit php/tests/disposable_email_checker_tests.php
+```
+
 ## Versioning Scheme
 
 The versioning for this library is formatted as follows "1.2.3".
