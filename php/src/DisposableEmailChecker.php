@@ -57,13 +57,12 @@ class DisposableEmailChecker
 	//
 
 	/**
-	 * Load the specified file given its name.
+	 * Loads the domains list from disk.
 	 *
-	 * @param string $p_type The name of the file not including the path or extension (e.g. open_domains).
 	 * @return array An array of domains matching the specified file name.
 	 */
-	private static function _load_file( $p_type ) {
-		$t_array = file( __DIR__ . '/../../data/' . $p_type . '.txt' );
+	private static function _load_file() {
+		$t_array = file( __DIR__ . '/../../data/domains.txt' );
 		$t_result_array = array();
 
 		foreach ( $t_array as $t_line ) {
