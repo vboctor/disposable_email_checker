@@ -1,5 +1,12 @@
 DisposableEmailChecker ChangeLog
 
+2018.11.04 - 3.1.0
+- Supported adding a set of domains to black list.
+- Supported removing a set of domains from black list.
+- Used associative array for domains to check membership faster.
+- Removed `ukr.net` from domain list.
+- Removed testing for PHP 5.3 since it is no longer supported by Travis CI.
+
 2017.05.21 - 3.0.1
 - Fixes for composer.json relating to auto-loading.
 
