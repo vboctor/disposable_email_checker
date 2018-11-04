@@ -41,7 +41,7 @@ class DisposableEmailCheckerTests extends PHPUnit_Framework_TestCase
 	}
 
 	public function testAddDomains() {
-		DisposableEmailChecker::addDomains( array( 'abc.com', 'XYZ.com' ) );
+		DisposableEmailChecker::add_domains( array( 'abc.com', 'XYZ.com' ) );
 		$this->assertTrue( DisposableEmailChecker::is_disposable_email( 'xyz.com' ) );
 		$this->assertTrue( DisposableEmailChecker::is_disposable_email( 'someone@xyz.com' ) );
 		$this->assertTrue( DisposableEmailChecker::is_disposable_email( 'abc.com' ) );
