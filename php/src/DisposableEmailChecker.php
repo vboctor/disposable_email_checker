@@ -50,6 +50,20 @@ class DisposableEmailChecker
 		return preg_match('/^[^@]+\+/', $address) == 1;
 	}
 
+	/**
+	 * Add a list of domains to the black list.
+	 *
+	 * @param array $p_domains The list of domains to add.
+	 */
+	public static function addDomains( array $p_domains ) {
+		DisposableEmailChecker::loadDomains();
+
+		foreach( $p_domains as $t_domain ) {
+			$t_domain = strtolower( $t_domain );
+			DisposableEmailChecker::$domains_array[$t_domain] = true;
+		}
+	}
+
 	//
 	// Private functions, shouldn't be called from outside the class
 	//
