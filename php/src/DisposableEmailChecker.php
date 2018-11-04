@@ -64,6 +64,20 @@ class DisposableEmailChecker
 		}
 	}
 
+	/**
+	 * Remove a list of domains from the black list.
+	 *
+	 * @param array $p_domains The list of domains to remove.
+	 */
+	public static function remove_domains( array $p_domains ) {
+		DisposableEmailChecker::_load_domains();
+
+		foreach( $p_domains as $t_domain ) {
+			$t_domain = strtolower( $t_domain );
+			unset( DisposableEmailChecker::$domains_array[$t_domain] );
+		}
+	}
+
 	//
 	// Private functions, shouldn't be called from outside the class
 	//
