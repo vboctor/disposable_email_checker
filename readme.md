@@ -35,11 +35,23 @@ This library is available as open source with MIT license, so you can use it
 in both open source and commercial applications.  The best ways to contribute
 back to this library are:
 
-1. Report service providers that the library should detect but it doesn't.
+1. Report service providers that the library should detect but it doesn't.  See section below for validating disposeable domains.
 2. Report bugs and feature request in the bug tracker.
 3. Provide ports for the library in languages other than PHP.
 
 To report bugs and feature requests use the associated github bug tracker.
+
+## Validating Disposable Domains
+
+Before submitting a PR with new disposable email domains, please validate
+that such domain are really disposable via the [Kickbox](kickbox.com) service.
+
+In the following URL replace `{domain}` with your domain (e.g. `example.com`) and make sure
+it returns `disposable: true`.
+
+```
+https://open.kickbox.com/v1/disposable/{domain}
+```
 
 ## Versioning Scheme
 
