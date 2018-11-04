@@ -14,6 +14,9 @@ namespace VBoctor\Email;
  */
 class DisposableEmailChecker
 {
+	/**
+	 * An associative array with domains as the keys.
+	 */
 	private static $domains_array = null;
 
 	/**
@@ -29,7 +32,7 @@ class DisposableEmailChecker
 			DisposableEmailChecker::$domains_array = DisposableEmailChecker::_load_file( 'domains' );
 		}
 
-		return in_array( $t_domain, DisposableEmailChecker::$domains_array );
+		return isset( DisposableEmailChecker::$domains_array[$t_domain] );
 	}
 
 	/**
@@ -74,7 +77,8 @@ class DisposableEmailChecker
 				continue;
 			}
 
-			$t_result_array[] = strtolower( $t_entry );
+			$t_domain = strtolower( $t_entry );
+			$t_result_array[$t_domain] = true;
 		}
 
 		return $t_result_array;
