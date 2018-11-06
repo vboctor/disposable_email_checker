@@ -1068,7 +1068,6 @@ mailzilla.com
 mailzilla.org
 mailzilla.orgmbx.cc
 makemetheking.com
-mamber.net
 manifestgenerator.com
 manybrain.com
 martin.securehost.com.es
@@ -1499,9 +1498,6 @@ spamfree24.info
 spamfree24.net
 spamfree24.org
 spamgoes.in
-spamgourmet.com
-spamgourmet.net
-spamgourmet.org
 spamgrube.net
 spamherelots.com
 spamhereplease.com
