@@ -5,7 +5,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  phpVersion: 5.6
+  phpVersion: 7.2
 
 steps:
 - script: |
@@ -17,8 +17,8 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
+# - script: composer install --no-interaction --prefer-dist
+#  displayName: 'composer install'
 
 - script: phpunit ./php/tests/disposable_email_checker_tests.php
   displayName: run unit tests
