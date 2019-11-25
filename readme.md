@@ -1,3 +1,4 @@
+
 # Disposable Email Checker
 
 [![Build Status](https://travis-ci.org/vboctor/disposable_email_checker.png?branch=master)](https://travis-ci.org/vboctor/disposable_email_checker)
@@ -5,7 +6,7 @@
 ## What is it?
 
 Disposable Email Checker is a library that allows applications to check for
-users signup with [[]disposable email addresses|https://en.wikipedia.org/wiki/Disposable_email_address]].  This is very important for
+users signup with [disposable email addresses](https://en.wikipedia.org/wiki/Disposable_email_address).  This is very important for
 services that provide some trial period based on the email address.  Hence,
 if users use disposable addresses, then they can potentially bypass the time
 limit.  Other applications may use it to make sure that they have valid emails
@@ -80,5 +81,5 @@ The versioning for this library is formatted as follows "1.2.3".
 ## Credits
 
 - Contributors of Domains
-- Merged domains from [[ivolo/disposable-email-domains|https://github.com/ivolo/disposable-email-domains/]]
-- Merged domains from [[aaronbassett/DisposableEmailChecker:https://github.com/aaronbassett/DisposableEmailChecker]]
+- Merged domains from [ivolo/disposable-email-domains](https://github.com/ivolo/disposable-email-domains/)
+- Merged domains from [aaronbassett/DisposableEmailChecker](https://github.com/aaronbassett/DisposableEmailChecker)
